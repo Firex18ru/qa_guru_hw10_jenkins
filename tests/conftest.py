@@ -31,9 +31,9 @@ def browser_settings():
         }
     }
 
-    selenoid_login = os.getenv("SELENOID_LOGIN")
-    selenoid_pass = os.getenv("SELENOID_PASS")
-    selenoid_url = os.getenv("SELENOID_URL")
+    selenoid_login = os.getenv("user1")
+    selenoid_pass = os.getenv("1234")
+    selenoid_url = os.getenv("https://selenoid.autotests.cloud/")
 
     options.capabilities.update(selenoid_capabilities)
     driver = webdriver.Remote(
