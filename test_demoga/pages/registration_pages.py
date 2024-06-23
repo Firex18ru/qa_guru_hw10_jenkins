@@ -70,7 +70,6 @@ class RegistrationPage:
         browser.element("#submit").click()
         return self
 
-    @allure.step("Проверяю форму /automation-practice-form")
     def register(self, student: User):
         (
             self._fill_first_name(student.name)
