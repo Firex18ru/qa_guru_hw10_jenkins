@@ -36,7 +36,7 @@ class RegistrationPage:
         browser.element("#dateOfBirthInput").click()
         browser.element(".react-datepicker__month-select").type(month)
         browser.element(".react-datepicker__year-select").type(year)
-        browser.element(f".react-datepicker__day--0{day}:not(.react-datepicker__day--outside-month)").click()
+        browser.element(f'.react-datepicker__day.react-datepicker__day--0{day}').click()
         return self
 
     def _choice_subjects(self, value):
