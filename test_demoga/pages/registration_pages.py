@@ -1,6 +1,7 @@
 from pathlib import Path
 from selene import browser, have
 from data.user import User
+import allure
 
 
 class RegistrationPage:
@@ -12,6 +13,7 @@ class RegistrationPage:
         browser.open("/automation-practice-form")
         return self
 
+    @allure.step("Заполняю форму /automation-practice-form")
     def _fill_first_name(self, value):
         browser.element("#firstName").type(value)
         return self
@@ -68,6 +70,7 @@ class RegistrationPage:
         browser.element("#submit").click()
         return self
 
+    @allure.step("Проверяю форму /automation-practice-form")
     def register(self, student: User):
         (
             self._fill_first_name(student.name)
