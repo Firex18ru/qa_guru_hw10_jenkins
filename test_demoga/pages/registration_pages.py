@@ -58,10 +58,10 @@ class RegistrationPage:
         browser.element("#currentAddress").type(value)
         return self
 
-    def _choice_state(self, value):
+    def _choice_state(self, state):
         self.state.perform(command.js.scroll_into_view).click()
         self.state.all('[id^=react-select-3-option]').element_by(
-            have.text(value)
+            have.text(state)
         ).click()
         return self
 
