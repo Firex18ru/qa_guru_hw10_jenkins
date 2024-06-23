@@ -59,8 +59,8 @@ class RegistrationPage:
         return self
 
     def _choice_state(self, state):
-        self.state.perform(command.js.scroll_into_view).click()
-        self.state.all('[id^=react-select-3-option]').element_by(
+        self._state.perform(command.js.scroll_into_view).click()
+        self._state.all('[id^=react-select-3-option]').element_by(
             have.text(state)
         ).click()
         return self
