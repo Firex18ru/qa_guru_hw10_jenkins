@@ -1,5 +1,5 @@
 from pathlib import Path
-from selene import browser, have, be
+from selene import browser, have, command
 from data.user import User
 import allure
 
@@ -58,8 +58,11 @@ class RegistrationPage:
         browser.element("#currentAddress").type(value)
         return self
 
-    def _choice_state(self, state):
-        browser.element("#state").click().element("#react-select-3-option-0").should(be.visible).click()
+    def _choice_state(self, value):
+        self.state.perform(command.js.scroll_into_view).click()
+        self.state.all('[id^=react-select-3-option]').element_by(
+            have.text(value)
+        ).click()
         return self
 
     def _choice_city(self, city):
