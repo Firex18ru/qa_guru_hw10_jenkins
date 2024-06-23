@@ -1,5 +1,5 @@
 from pathlib import Path
-from selene import browser, have
+from selene import browser, have, be
 from data.user import User
 import allure
 
@@ -13,7 +13,7 @@ class RegistrationPage:
         browser.open("/automation-practice-form")
         return self
 
-    #@allure.step("Заполняю форму /automation-practice-form")
+    @allure.step("Заполняю форму /automation-practice-form")
     def _fill_first_name(self, value):
         browser.element("#firstName").type(value)
         return self
@@ -59,7 +59,7 @@ class RegistrationPage:
         return self
 
     def _choice_state(self, state):
-        browser.element("#state").click().element("#react-select-3-option-0").click()
+        browser.element("#state").click().element("#react-select-3-option-0").should(be.visible).click()
         return self
 
     def _choice_city(self, city):
