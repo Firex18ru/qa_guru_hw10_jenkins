@@ -11,6 +11,7 @@ class RegistrationPage:
     def open(self):
         browser.open("/automation-practice-form")
         return self
+
     def _fill_first_name(self, value):
         browser.element("#firstName").type(value)
         return self
