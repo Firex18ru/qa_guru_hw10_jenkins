@@ -13,50 +13,73 @@ class RegistrationPage:
         browser.open("/automation-practice-form")
         return self
 
-    @allure.step("Заполняю форму студента")
+    @allure.step("Заполняю имя студента")
     def _fill_first_name(self, value):
         browser.element("#firstName").type(value)
         return self
+
+    @allure.step("Заполняю фамилию студента")
     def _fill_last_name(self, value):
         browser.element("#lastName").type(value)
         return self
+
+    @allure.step("Указываю почту студента")
     def _fill_email(self, value):
         browser.element("#userEmail").type(value)
         return self
+
+    @allure.step("Указываю пол студента")
     def _choice_gender(self, gender):
         browser.element('[for="gender-radio-1"]').click()
         return self
+
+    @allure.step("Указываю номер телефона студента")
     def _fill_phone_number(self, value):
         browser.element("#userNumber").type(value)
         return self
+
+    @allure.step("Заполняю дату рождения студента")
     def _fill_birthday(self, year, month, day):
         browser.element("#dateOfBirthInput").click()
         browser.element(".react-datepicker__month-select").type(month)
         browser.element(".react-datepicker__year-select").type(year)
         browser.element(f'.react-datepicker__day.react-datepicker__day--0{day}').click()
         return self
+
+    @allure.step("Указываю интересы студента")
     def _choice_subjects(self, value):
         browser.element("#subjectsInput").type(value).press_enter()
         return self
+
+    @allure.step("Указываю хобби студента")
     def _choice_hobbies(self, hobbies):
         browser.element("[for = hobbies-checkbox-1]").click()
         browser.element("[for = hobbies-checkbox-2]").click()
         return self
+
+    @allure.step("Загружаю фото")
     def _upload_picture(self, file):
         browser.element("#uploadPicture").type(str(Path(__file__).parent.parent.joinpath(f"resources/", file)))
         return self
+
+    @allure.step("Указываю адрес студента")
     def _fill_address(self, value):
         browser.element("#currentAddress").type(value)
         return self
+
+    @allure.step("Указываю штат студента")
     def _choice_state(self, state):
         self._state.perform(command.js.scroll_into_view).click()
         self._state.all('[id^=react-select-3-option]').element_by(
             have.text(state)
         ).click()
         return self
+
+    @allure.step("Указываю город студента")
     def _choice_city(self, city):
         browser.element("#city").click().element("#react-select-4-option-0").click()
         return self
+
     def _submit(self):
         browser.element("#submit").click()
         return self
