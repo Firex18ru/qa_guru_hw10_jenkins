@@ -24,7 +24,7 @@ def test_demoqa_form():
         browser.element("#subjectsInput").type("Computer Science").press_enter()
         browser.element("[for = hobbies-checkbox-1]").click()
         browser.element("[for = hobbies-checkbox-2]").click()
-        browser.element("#uploadPicture").send_keys(os.path.abspath("./picture/094745.png"))
+        browser.element("#uploadPicture").send_keys(os.path.abspath("picture/094745.png"))
         browser.element("#currentAddress").type("Izhevsk")
         browser.element("#state").click().element("#react-select-3-option-0").click()
         browser.element("#city").click().element("#react-select-4-option-0").click()
