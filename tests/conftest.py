@@ -9,6 +9,8 @@ from dotenv import load_dotenv
 
 import os
 
+VIDEO_URL = os.getenv('VIDEO_URL')
+
 
 @pytest.fixture(scope="session", autouse=True)
 def load_env():
