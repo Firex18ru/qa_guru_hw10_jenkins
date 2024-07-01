@@ -9,7 +9,9 @@ from dotenv import load_dotenv
 
 import os
 
-VIDEO_URL = os.getenv('VIDEO_URL')
+
+def video_url():
+    return None
 
 
 @pytest.fixture(scope="session", autouse=True)
@@ -50,5 +52,4 @@ def browser_settings():
     attach.add_html(browser)
     attach.add_logs(browser)
     attach.add_video(browser)
-
     browser.quit()
